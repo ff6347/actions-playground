@@ -1,0 +1,16 @@
+on: [workflow_dispatch]
+
+env:
+  VALUE: "foo"
+
+jobs:
+  manual:
+    runs-on: ubuntu-latest
+    name: Testing conditional env
+    steps:
+      - name: If on specific branch set a different value
+        if: startsWith(github.head.ref, 'demo')
+        run: |
+          ::set-env name=VALUE::bah
+      - name: echoit
+        run: echo $VALUE
