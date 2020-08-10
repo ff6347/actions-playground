@@ -12,6 +12,6 @@ jobs:
       - name: If on specific branch set a different value
         if: startsWith(github.head.ref, 'demo')
         run: |
-          ::set-env name=VALUE::bah
+          echo "::set-env name=VALUE::bah"
       - name: echoit
         run: echo $VALUE
