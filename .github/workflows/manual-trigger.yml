@@ -9,9 +9,11 @@ jobs:
     runs-on: ubuntu-latest
     name: Testing conditional env
     steps:
+      - name: Echo ref
+        run: echo github.head.ref
       - name: If on specific branch set a different value
         if: startsWith(github.head.ref, 'demo')
         run: |
           echo "::set-env name=VALUE::bah"
-      - name: echoit
+      - name: echo var
         run: echo $VALUE
