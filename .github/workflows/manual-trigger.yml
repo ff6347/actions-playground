@@ -1,3 +1,16 @@
+# This WF has two things.
+# 1. it sets a env varia ble based on the branch it is on
+# https://github.community/t/github-actions-branch-conditional/16057
+# https://github.com/actions/starter-workflows/issues/68#issuecomment-552074596
+# https://github.community/t/conditional-expression-syntax/17536/2
+#
+# 2. it can be triggered manually
+# https://docs.github.com/en/actions/reference/events-that-trigger-workflows#workflow_dispatch
+# https://docs.github.com/en/rest/reference/actions#create-a-workflow-dispatch-event
+# call it using the github api
+# with gh cli
+# gh api repos/fabianmoronzirfas/actions-playground/actions/workflows/2150067/dispatches -F ref='demo'
+
 name: manual
 on: [workflow_dispatch]
 
