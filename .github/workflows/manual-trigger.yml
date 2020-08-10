@@ -10,9 +10,9 @@ jobs:
     name: Testing conditional env
     steps:
       - name: Echo ref
-        run: echo github.head.ref
+        run: echo ${{github.ref}}
       - name: If on specific branch set a different value
-        if: startsWith(github.head.ref, 'demo')
+        if: github.ref == 'refs/heads/demo'
         run: |
           echo "::set-env name=VALUE::bah"
       - name: echo var
